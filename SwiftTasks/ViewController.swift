@@ -35,6 +35,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        taskArray = taskArray.sorted {
+            (taskOne:TaskModel, taskTwo:TaskModel) -> Bool in
+            // comparison logic here
+            return taskOne.date.timeIntervalSince1970 < taskTwo.date.timeIntervalSince1970
+        }
+        
+        
         self.tableView.reloadData()
     }
     
@@ -74,6 +82,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let indexPath = self.tableView.indexPathForSelectedRow()
             let thisTask = taskArray[indexPath!.row]
             detailVC.detailTaskModel = thisTask
+            detailVC.mainVC = self
         }else if segue.identifier == "showAddTask" {
             let addTaskVC:AddTaskViewController = segue.destinationViewController as AddTaskViewController
             addTaskVC.mainVC = self
