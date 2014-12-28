@@ -13,6 +13,7 @@
 		9C3732091A5079F400BC84BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C3732081A5079F400BC84BD /* Images.xcassets */; };
 		9C37320C1A5079F400BC84BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C37320A1A5079F400BC84BD /* LaunchScreen.xib */; };
 		9C3732181A5079F400BC84BD /* SwiftTasksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3732171A5079F400BC84BD /* SwiftTasksTests.swift */; };
+		9C3732221A50890B00BC84BD /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3732211A50890B00BC84BD /* TaskTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		9C3732111A5079F400BC84BD /* SwiftTasksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTasksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3732161A5079F400BC84BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C3732171A5079F400BC84BD /* SwiftTasksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTasksTests.swift; sourceTree = "<group>"; };
+		9C3732211A50890B00BC84BD /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				9C3732011A5079F400BC84BD /* AppDelegate.swift */,
 				9C3732031A5079F400BC84BD /* ViewController.swift */,
+				9C3732211A50890B00BC84BD /* TaskTableViewCell.swift */,
 				9C3732051A5079F400BC84BD /* Main.storyboard */,
 				9C3732081A5079F400BC84BD /* Images.xcassets */,
 				9C37320A1A5079F400BC84BD /* LaunchScreen.xib */,
@@ -214,6 +217,7 @@
 			files = (
 				9C3732041A5079F400BC84BD /* ViewController.swift in Sources */,
 				9C3732021A5079F400BC84BD /* AppDelegate.swift in Sources */,
+				9C3732221A50890B00BC84BD /* TaskTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
