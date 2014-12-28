@@ -18,9 +18,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let task1 = TaskModel(task: "Gym Day 1", subTask: "Back and Bi", date: "01/01/2015")
-        let task2 = TaskModel(task: "Gym Day 2", subTask: "Chest and Tri", date: "02/01/2015")
-        taskArray = [task1, task2, TaskModel(task: "Gym Day 3", subTask: "Leg Day", date: "03/01/2015")]
+        let date1 = Date.from(year: 2014, month: 05, day: 20)
+        let date2 = Date.from(year: 2014, month: 03, day: 3)
+        let date3 = Date.from(year: 2014, month: 12, day: 13)
+        
+        let task1 = TaskModel(task: "Gym Day 1", subTask: "Back and Bi", date: date1)
+        let task2 = TaskModel(task: "Gym Day 2", subTask: "Chest and Tri", date: date2)
+        taskArray = [task1, task2, TaskModel(task: "Gym Day 3", subTask: "Leg Day", date: date3)]
         self.tableView.reloadData()
     }
 
@@ -40,13 +44,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.taskLabel.text = thisTask.task
         cell.subTaskLabel.text = thisTask.subTask
-        cell.dateLabel.text = thisTask.date
+        cell.dateLabel.text = Date.toString(date: thisTask.date)
         
         return cell
     }
     
     //UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        
+        println(indexPath.row)
+        performSegueWithIdentifier("showTaskDetail", sender: self)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showTaskDetail" {
+            let detailVC: TaskDetailViewController = segue.destinationViewController as TaskDetailViewController
+            let indexPath = self.tableView.indexPathForSelectedRow()
+            let thisTask = taskArray[indexPath!.row]
+            detailVC.detailTaskModel = thisTask
+        }
     }
 
 }
