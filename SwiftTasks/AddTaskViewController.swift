@@ -9,7 +9,13 @@
 import UIKit
 
 class AddTaskViewController: UIViewController {
+    
+    var mainVC: ViewController!
 
+    @IBOutlet weak var taskText: UITextField!
+    @IBOutlet weak var subTaskTextField: UITextField!
+    @IBOutlet weak var dueDatePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +25,19 @@ class AddTaskViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func cancelButtonTapped(sender: UIButton) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    @IBAction func addTaskButtonTapped(sender: UIButton) {
+        
+        var task = TaskModel(task: taskText.text, subTask: subTaskTextField.text, date: dueDatePicker.date)
+        mainVC?.taskArray.append(task)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 
